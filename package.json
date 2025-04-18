@@ -1,0 +1,43 @@
+{
+  "name": "wills-wealth-commander",
+  "version": "1.0.0",
+  "private": true,
+  "main": "main.js",
+  "author": "Willie G. Mayes",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "electron": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "package": "npm run build && electron-packager . \"Will's Wealth Commander\" --platform=win32 --arch=x64 --icon=icon.ico --overwrite",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "recharts": "^2.6.2",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "xlsx": "^0.18.5",
+    "file-saver": "^2.0.5",
+    "firebase": "^9.22.1"
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-packager": "^17.1.1",
+    "electron-builder": "^24.3.0",
+    "concurrently": "^8.2.0",
+    "wait-on": "^7.0.1"
+  },
+  "build": {
+    "appId": "com.jt.willswealth",
+    "productName": "Will's Wealth Commander",
+    "win": {
+      "target": "msi",
+      "icon": "icon.ico"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  }
+}
